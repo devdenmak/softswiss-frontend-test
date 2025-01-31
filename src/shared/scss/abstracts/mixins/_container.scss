@@ -1,0 +1,33 @@
+@use "../variables" as *;
+@use "media" as *;
+
+@mixin container(
+  $max-width: $container-width,
+  $container-gutter-default: $container-gutter-xl
+) {
+  margin: {
+    right: auto;
+    left: auto;
+  }
+
+  position: relative;
+  width: 100%;
+  max-width: $max-width;
+  padding-left: $container-gutter-default;
+  padding-right: $container-gutter-default;
+
+  @include mq($until: xl) {
+    padding-left: $container-gutter-xl;
+    padding-right: $container-gutter-xl;
+  }
+
+  @include mq($until: lg) {
+    padding-left: $container-gutter-lg;
+    padding-right: $container-gutter-lg;
+  }
+
+  @include mq($until: md) {
+    padding-left: $container-gutter-md;
+    padding-right: $container-gutter-md;
+  }
+}

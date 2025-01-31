@@ -1,0 +1,54 @@
+@mixin reset-text-indents() {
+  font-size: 0;
+  line-height: 0;
+}
+
+@mixin reset-btn() {
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  border: none;
+  padding: 0;
+  vertical-align: middle;
+  user-select: none;
+  text-decoration: none;
+  text-transform: none;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: none;
+  cursor: pointer;
+  outline: 0;
+  font-family: inherit;
+  appearance: none;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+@mixin unlist($margin: true, $padding: true) {
+  @if $margin {
+    margin: 0;
+  }
+
+  @if $padding {
+    padding: 0;
+  }
+
+  list-style: none;
+}
+
+@mixin unselectable {
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+@mixin selection {
+  ::-moz-selection {
+    @content;
+  }
+
+  ::selection {
+    @content;
+  }
+}

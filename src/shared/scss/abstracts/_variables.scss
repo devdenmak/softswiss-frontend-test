@@ -1,0 +1,70 @@
+// Fonts
+
+$font-family-main: var(
+  --font-proxima-nova,
+  "Proxima Nova",
+  "Segoe UI",
+  "Roboto",
+  "Helvetica Neue",
+  "Arial",
+  "Noto Sans",
+  "Liberation Sans",
+  "sans-serif"
+) !default;
+
+$font-family-headings: var(
+  --font-chakra-petch,
+  "Chakra Petch",
+  "Segoe UI",
+  "Roboto",
+  "Helvetica Neue",
+  "Arial",
+  "Noto Sans",
+  "Liberation Sans",
+  "sans-serif"
+) !default;
+
+$base-font-size: 18px !default;
+$base-line-height: 1.27 !default;
+
+// Border Radius
+
+$border-radius-s: 8px !default;
+$border-radius-m: 12px !default;
+$border-radius-l: 16px !default;
+$border-radius-percent-50: 50% !default;
+
+// Breakpoints
+
+$breakpoints-0: 0 !default;
+$breakpoints-xs: 375px !default;
+$breakpoints-sm: 480px !default;
+$breakpoints-md: 768px !default;
+$breakpoints-lg: 1024px !default;
+$breakpoints-xl: 1200px !default;
+$breakpoints-2xl: 1440px !default;
+$breakpoints-3xl: 1920px !default;
+
+$breakpoints: (
+  "0": $breakpoints-0,
+  "xs": $breakpoints-xs,
+  "sm": $breakpoints-sm,
+  "md": $breakpoints-md,
+  "lg": $breakpoints-lg,
+  "xl": $breakpoints-xl,
+  "2xl": $breakpoints-2xl,
+  "3xl": $breakpoints-3xl,
+);
+
+// Container
+
+$container-width: 1368px !default;
+$container-gutter-xl: 20px !default;
+$container-gutter-lg: 15px !default;
+$container-gutter-md: 15px !default;
+
+// Transitions
+
+$transition-fast: 0.15s ease !default;
+$transition-slow: 0.3s ease !default;
+$transition-very-slow: 0.5s ease !default;

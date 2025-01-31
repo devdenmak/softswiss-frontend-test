@@ -1,0 +1,146 @@
+@use '../abstracts' as *;
+@use 'sass:color';
+
+@at-root {
+  @viewport {
+    width: device-width;
+  }
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -ms-overflow-style: scrollbar;
+  text-size-adjust: 100%;
+  min-width: 375px;
+  min-height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  margin: 0;
+  background: var(--color-background-secondary);
+  color: var(--color-foreground-main);
+  word-break: break-word;
+  font-family: $font-family-main;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+[tabindex='-1']:focus {
+  outline: none !important;
+}
+
+[role='button'] {
+  cursor: pointer;
+}
+
+input[type='search'] {
+  appearance: textfield;
+}
+
+a,
+button,
+[role='button'],
+input,
+label,
+select,
+textarea {
+  touch-action: manipulation;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+  text-transform: none;
+}
+
+button,
+html [type='button'],
+[type='reset'],
+[type='submit'] {
+  appearance: button;
+}
+
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+input[type='date'],
+input[type='time'],
+input[type='datetime-local'],
+input[type='month'] {
+  appearance: listbox;
+}
+
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
+
+svg {
+  fill: currentColor;
+
+  a &,
+  button & {
+    pointer-events: none;
+  }
+
+  &:not(:root) {
+    overflow: hidden;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+::selection {
+  background: var(--color-background-fourth);
+  color: var(--color-foreground-sixth);
+}
+
+::-moz-selection {
+  background: var(--color-background-fourth);
+  color: var(--color-foreground-sixth);
+}
+
+button {
+  appearance: none;
+}
+
+a,
+button {
+  outline: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+small {
+  font-size: 80%;
+}

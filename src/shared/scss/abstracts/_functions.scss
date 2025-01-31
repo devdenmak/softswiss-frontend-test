@@ -1,0 +1,9 @@
+@use "sass:math";
+
+@function px-to-em($px, $font-size) {
+  @return (($px * 100 / ($font-size / 1px)) / 100) * 1em;
+}
+
+@function line-height($line-height, $font-size) {
+  @return math.div(math.round(math.div($line-height, $font-size) * 100), 100);
+}
