@@ -6,3 +6,7 @@ npm: 10.8.1
 ```
 
 ### `npm install --legacy-peer-deps`
+
+```bash
+npm start
+```
