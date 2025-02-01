@@ -1,7 +1,64 @@
-@use '@/app/_shared/scss/abstracts' as *;
+@use 'sass:color';
+@use '../../scss/abstracts' as *;
 
 .button {
   $block-name: &;
 
   @include reset-btn;
+
+  display: inline-flex;
+  align-items: center;
+  min-height: 54px;
+  padding: 5px 40px;
+  background-color: $color-background-secondary;
+  color: $color-foreground-third;
+  border-radius: 100px;
+  font-weight: 700;
+  transition: background-color $transition-fast, color $transition-fast,
+    border-color $transition-fast;
+  font-size: 22px;
+  line-height: normal;
+
+  &:hover {
+    background-color: color.adjust($color-background-secondary, $alpha: -0.4);
+  }
+
+  &:active {
+    background-color: $color-background-secondary;
+  }
+
+  @include mq($until: lg) {
+    font-size: 16px;
+    min-height: 33px;
+  }
+
+  &--size-l {
+    @include mq($until: lg) {
+      font-size: 22px;
+      min-height: 54px;
+    }
+
+    @include mq($until: sm) {
+      font-size: 16px;
+      min-height: 33px;
+    }
+  }
+
+  &--variant-primary-outlined {
+    border: 2px solid $color-background-secondary;
+    background-color: transparent;
+    color: $color-foreground-primary;
+
+    &:hover {
+      background-color: transparent;
+      border-color: color.adjust($color-background-secondary, $alpha: -0.4);
+      color: color.adjust($color-foreground-primary, $alpha: -0.4);
+    }
+
+    &:active {
+      border-color: $color-background-secondary;
+      background-color: transparent;
+      color: $color-foreground-primary;
+    }
+  }
 }

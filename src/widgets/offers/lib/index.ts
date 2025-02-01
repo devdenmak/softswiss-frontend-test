@@ -1,5 +1,5 @@
-export const getCardSize = (cardNumber: number): 'md' | 'lg' => {
-  if (cardNumber % 3 === 1) return 'lg'
+export const getCardSize = (cardNumber: number): 'm' | 'l' => {
+  if (cardNumber % 3 === 1) return 'l'
 
-  return 'md' // маленькая
+  return 'm'
 }

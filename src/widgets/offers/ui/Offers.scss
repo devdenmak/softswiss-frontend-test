@@ -1,0 +1,113 @@
+@use '../../../shared/scss/abstracts' as *;
+@use 'sass:color';
+
+.offers {
+  $block-name: &;
+
+  padding-top: 58px;
+  padding-bottom: 58px;
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include mq($until: lg) {
+      gap: 30px;
+    }
+
+    @include mq($until: md) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &__grid-cell {
+    &--size-m {
+    }
+
+    &--size-l {
+      grid-column: span 2;
+
+      @include mq($until: lg) {
+        grid-column: span 1;
+      }
+    }
+  }
+}
+
+.offer {
+  $block-name: &;
+
+  border-radius: $border-radius-m;
+  overflow: hidden;
+  background-size: calc(100% + 2px) calc(100% + 2px);
+  background-position: -1px -1px;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 35px;
+  align-items: flex-start;
+  min-height: 340px;
+  justify-content: flex-end;
+
+  @include mq($until: xl) {
+    background-size: cover;
+    background-position: center;
+  }
+
+  @include mq($until: lg) {
+    padding: 25px;
+  }
+
+  @include mq($until: sm) {
+    min-height: 340px;
+  }
+
+  &__title {
+    max-width: 280px;
+
+    @include mq($until: lg) {
+      max-width: 240px;
+    }
+  }
+
+  &__description {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 120%;
+
+    @include mq($until: lg) {
+      font-size: 16px;
+    }
+  }
+
+  &__button {
+  }
+
+  &--size-l {
+    #{$block-name} {
+      &__title {
+        max-width: 630px;
+
+        @include mq($until: lg) {
+          max-width: 240px;
+        }
+      }
+
+      &__description {
+        font-size: 26px;
+
+        @include mq($until: lg) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

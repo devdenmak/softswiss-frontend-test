@@ -3,15 +3,15 @@ import { HTMLProps } from 'react'
 
 import './Container.scss'
 
-export type IContainerProps = HTMLProps<HTMLElement> & {
+export type IContainerProps = HTMLProps<HTMLDivElement> & {
   size?: 'm' | 'infinity'
 }
 
 const Container: React.FC<IContainerProps> = ({ children, size = 'm', ...props }) => {
   return (
-    <section className={cn('container', `container--size-${size}`)} {...props}>
+    <div className={cn('container', `container--size-${size}`)} {...props}>
       {children}
-    </section>
+    </div>
   )
 }
 

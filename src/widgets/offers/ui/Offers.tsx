@@ -5,6 +5,11 @@ import { useOffers } from '../hooks'
 import { IOffer } from '../config'
 import { Title } from '../../../shared/ui/Title'
 import { getCardSize } from '../lib'
+import { Button } from '../../../shared/ui/Button'
+import { getBackgroundImage } from '../../../shared/lib/getBackgroundImage'
+import variables from '../../../shared/scss/abstracts/variables.export.scss'
+
+import './Offers.scss'
 
 const Offers: React.FC<HTMLProps<HTMLElement>> = ({ className, ...rest }) => {
   const offersData = useOffers()
@@ -12,12 +17,23 @@ const Offers: React.FC<HTMLProps<HTMLElement>> = ({ className, ...rest }) => {
   return (
     <section className={clsx('offers', className)} {...rest}>
       <Container>
-        <Title tag="h2">Offers</Title>
+        <Title className="offers__title" textSize="s" tag="h2">
+          Offers
+        </Title>
 
         <div className="offers__grid">
-          {offersData.map((offer, idx) => (
-            <OfferCard offer={offer} size={getCardSize(idx + 1)} />
-          ))}
+          {offersData.map((offer, idx) => {
+            const size = getCardSize(idx + 1)
+
+            return (
+              <OfferCard
+                key={idx}
+                className={`offers__grid-cell offers__grid-cell--size-${size}`}
+                offer={offer}
+                size={size}
+              />
+            )
+          })}
         </div>
       </Container>
     </section>
@@ -26,14 +42,29 @@ const Offers: React.FC<HTMLProps<HTMLElement>> = ({ className, ...rest }) => {
 
 type IOfferProps = {
   offer: IOffer
-  size: 'md' | 'lg'
+  size: 'm' | 'l'
+  className?: string
 }
 
-const OfferCard = ({ offer: { title, description }, size }: IOfferProps) => {
+const OfferCard = ({ offer: { title, description, images }, size, className }: IOfferProps) => {
+  const { gradientWhiteToBlackHorizontal } = variables
+
+  const backgroundImage = getBackgroundImage(`${images.src} 1x, ${images.src2x} 2x`)
+
   return (
-    <article className={clsx('offer', `offer--size-${size}`)}>
-      <Title>{title}</Title>
-      <p>{description}</p>
+    <article
+      style={{ backgroundImage: `${gradientWhiteToBlackHorizontal}, ${backgroundImage}` }}
+      className={clsx('offer', `offer--size-${size}`, className)}
+    >
+      <Title className="offer__title" textSize={size === 'l' ? 'xl' : 'm'} tag="h3">
+        {title}
+      </Title>
+
+      <p className="offer__description">{description}</p>
+
+      <Button variant="primary-outlined" className="offer__button">
+        Learn more
+      </Button>
     </article>
   )
 }

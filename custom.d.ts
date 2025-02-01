@@ -22,3 +22,8 @@ declare module '*.webp' {
   const src: string
   export default src
 }
+
+declare module '*.export.scss' {
+  const src: Record<string, string>
+  export default src
+}

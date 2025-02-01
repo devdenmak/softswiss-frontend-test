@@ -1,0 +1,5 @@
+@use './variables' as *;
+
+:export {
+  gradientWhiteToBlackHorizontal: $gradient-white-to-black-horizontal;
+}

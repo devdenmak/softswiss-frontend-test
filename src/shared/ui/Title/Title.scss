@@ -3,18 +3,53 @@
 .title {
   margin-top: 0;
   margin-bottom: 0;
-  font-family: $font-family-headings;
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: 0.96px;
-  text-transform: uppercase;
-  color: var(--color-foreground-seventh);
 
-  &--color-secondary {
-    color: var(--color-base-purple-850);
+  color: $color-foreground-fourth;
+  font-size: 46px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1;
+
+  > span {
+    color: $color-foreground-secondary;
   }
 
-  &--color-third {
-    color: var(--color-base-gray-50);
+  @include mq($until: lg) {
+    font-size: 40px;
+  }
+
+  &--size-s {
+    font-size: 32px;
+
+    @include mq($until: lg) {
+      font-size: 24px;
+    }
+
+    @include mq($until: sm) {
+      font-size: 18px;
+    }
+  }
+
+  &--size-m {
+  }
+
+  &--size-l {
+    font-size: 72px;
+
+    @include mq($until: lg) {
+      font-size: 48px;
+    }
+
+    @include mq($until: md) {
+      font-size: 36px;
+    }
+  }
+
+  &--size-xl {
+    font-size: 74px;
+
+    @include mq($until: lg) {
+      font-size: 40px;
+    }
   }
 }

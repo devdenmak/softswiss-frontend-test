@@ -10,6 +10,7 @@ export type IButtonProps = {
   disabled?: boolean
   loading?: boolean
   tag?: 'button' | 'div'
+  size?: 'm' | 'l'
 }
 
 const Button = ({
@@ -19,13 +20,21 @@ const Button = ({
   loading = false,
   tag = 'button',
   href,
+  className,
+  size = 'm',
 }: IButtonProps) => {
   const Tag = tag
 
-  const classes = clsx('button', `button--variant-${variant}`, {
-    'button--disabled': disabled,
-    'button--loading': loading,
-  })
+  const classes = clsx(
+    'button',
+    `button--variant-${variant}`,
+    `button--size-${size}`,
+    {
+      'button--disabled': disabled,
+      'button--loading': loading,
+    },
+    className,
+  )
 
   if (href) {
     return (
