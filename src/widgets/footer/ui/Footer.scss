@@ -1,0 +1,31 @@
+@use '../../../shared/scss/abstracts' as *;
+@use 'sass:color';
+
+.footer {
+  $block-name: &;
+
+  background-color: $color-background-third;
+  min-height: 130px;
+  text-align: center;
+  padding: 15px 0;
+  overflow: hidden;
+
+  &__rocket {
+    margin-bottom: -8px;
+    animation: shake 0.3s ease-in-out infinite;
+  }
+
+  &__rocket-image {
+    rotate: -25deg;
+  }
+
+  &__text {
+    color: $color-foreground-primary;
+
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 21px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,13 @@
+@use '../../scss/abstracts' as *;
+
+.container {
+  @include container;
+
+  &--size-m {
+    @include container;
+  }
+
+  &--size-infinity {
+    @include container(none);
+  }
+}

@@ -20,3 +20,21 @@
     transform: translateY(0);
   }
 }
+
+@keyframes shake {
+  0% {
+    transform: translateX(0) rotate(0);
+  }
+  25% {
+    transform: translateX(-2px) rotate(-0deg);
+  }
+  50% {
+    transform: translateX(2px) rotate(0deg);
+  }
+  75% {
+    transform: translateX(-2px) rotate(-0deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+}

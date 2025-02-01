@@ -1,0 +1,232 @@
+@use '../../../shared/scss/abstracts' as *;
+@use 'sass:color';
+
+.header {
+  $block-name: &;
+
+  position: sticky;
+  top: 0;
+  right: 0;
+  background-color: $color-background-third;
+  color: $color-foreground-fourth;
+  z-index: 10;
+
+  &__inner {
+    @include container;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height-desktop;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 0 30px;
+
+    @include mq($until: md) {
+      padding-top: 0;
+      padding-bottom: 0;
+      height: $header-height-mobile;
+    }
+  }
+
+  &__left {
+    @include mq($until: md) {
+      background-color: $color-background-third;
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      padding-left: $container-gutter-md;
+      padding-right: $container-gutter-md;
+    }
+  }
+
+  &__logo {
+  }
+
+  &__logo-link {
+    color: transparent;
+    display: inline-flex;
+    padding: 10px;
+    margin: -10px;
+    transition: opacity $transition-fast;
+
+    @include mq($until: md) {
+      width: 70px;
+      margin: 0;
+      padding: 0;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
+  }
+
+  &__right {
+  }
+
+  &__burger-checkbox {
+    display: none;
+
+    &:checked {
+      & ~ #{$block-name}__burger-icon {
+        #{$block-name}__burger-icon-line {
+          border-radius: 0;
+
+          &--1 {
+            transform: translateY(9px) rotate(45deg);
+          }
+
+          &--2 {
+            opacity: 0;
+          }
+
+          &--3 {
+            transform: translateY(-9px) rotate(-45deg);
+          }
+        }
+      }
+
+      & ~ #{$block-name}__menu {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  &__burger-icon {
+    position: absolute;
+    top: 0;
+    right: calc($container-gutter-md - 9px);
+    display: none;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    -webkit-tap-highlight-color: transparent;
+
+    @include mq($until: md) {
+      display: flex;
+    }
+  }
+
+  &__burger-icon-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  &__burger-icon-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $color-background-fourth;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    position: absolute;
+    will-change: transform;
+
+    &--1 {
+      top: 0;
+    }
+    &--2 {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &--3 {
+      bottom: 0;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0 30px;
+    transition: transform $transition-fast;
+
+    @include mq($until: md) {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      align-items: center;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: $header-height-mobile;
+      background-color: $color-background-third;
+      padding-left: 6px;
+      padding-right: 6px;
+
+      transform: translate3d(0, -100%, 0);
+
+      gap: 0 15px;
+    }
+  }
+
+  &__navigation {
+  }
+
+  &__navigation-list {
+    @include unlist;
+
+    display: flex;
+    align-items: center;
+    gap: 0 22px;
+
+    @include mq($until: md) {
+      gap: 0;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__navigation-item {
+  }
+
+  &__navigation-link {
+    color: $color-foreground-fourth;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 15px;
+    display: inline-flex;
+    font-size: 18px;
+    line-height: 21px;
+    background: $gradient-yellow-to-pink-horizontal;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    transition: color $transition-fast;
+
+    @include mq($until: md) {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    &:hover {
+      color: color.adjust($color-base-black, $alpha: -1);
+    }
+
+    &:active {
+      color: $color-foreground-fourth;
+    }
+  }
+
+  &__cart-button {
+    @include mq($until: md) {
+      margin-left: auto;
+      padding-right: 3px;
+    }
+  }
+}

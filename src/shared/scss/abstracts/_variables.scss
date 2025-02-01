@@ -1,37 +1,58 @@
+@use 'sass:color';
+
 // Fonts
 
-$font-family-main: var(
-  --font-proxima-nova,
-  "Proxima Nova",
-  "Segoe UI",
-  "Roboto",
-  "Helvetica Neue",
-  "Arial",
-  "Noto Sans",
-  "Liberation Sans",
-  "sans-serif"
-) !default;
+$font-family-main: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family-headings: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-$font-family-headings: var(
-  --font-chakra-petch,
-  "Chakra Petch",
-  "Segoe UI",
-  "Roboto",
-  "Helvetica Neue",
-  "Arial",
-  "Noto Sans",
-  "Liberation Sans",
-  "sans-serif"
-) !default;
+$base-font-size: 20px !default;
+$base-line-height: 1.2 !default;
 
-$base-font-size: 18px !default;
-$base-line-height: 1.27 !default;
+// Base Colors
+
+$color-base-white: #fff !default;
+$color-base-black: #000 !default;
+
+$color-base-purple: #ff70d9 !default;
+$color-base-yellow: #ebff00 !default;
+
+$color-base-blue: #304571 !default;
+$color-base-blue-dark: #0d1e48 !default;
+
+// Base Gradients
+
+$gradient-yellow-to-pink-horizontal: linear-gradient(
+  98deg,
+  $color-base-yellow 18.56%,
+  $color-base-purple 76.02%
+);
+
+$gradient-blue-dark-to-blue-horizontal: linear-gradient(
+  196deg,
+  $color-base-blue-dark 0%,
+  $color-base-blue 100%
+);
+
+// Semantic Colors
+
+$color-foreground-primary: $color-base-yellow !default;
+$color-foreground-secondary: $color-base-purple !default;
+$color-foreground-third: $color-base-black !default;
+$color-foreground-fourth: $color-base-white !default;
+
+$color-background-primary: $gradient-blue-dark-to-blue-horizontal !default;
+$color-background-secondary: $color-base-yellow !default;
+$color-background-third: $color-base-black !default;
+$color-background-fourth: $color-base-white !default;
+
+$color-text: $color-base-white !default;
+$color-text-muted: color.adjust($color-text, $alpha: -0.4) !default;
 
 // Border Radius
 
 $border-radius-s: 8px !default;
-$border-radius-m: 12px !default;
-$border-radius-l: 16px !default;
+$border-radius-m: 10px !default;
+$border-radius-l: 12px !default;
 $border-radius-percent-50: 50% !default;
 
 // Breakpoints
@@ -43,28 +64,31 @@ $breakpoints-md: 768px !default;
 $breakpoints-lg: 1024px !default;
 $breakpoints-xl: 1200px !default;
 $breakpoints-2xl: 1440px !default;
-$breakpoints-3xl: 1920px !default;
 
 $breakpoints: (
-  "0": $breakpoints-0,
-  "xs": $breakpoints-xs,
-  "sm": $breakpoints-sm,
-  "md": $breakpoints-md,
-  "lg": $breakpoints-lg,
-  "xl": $breakpoints-xl,
-  "2xl": $breakpoints-2xl,
-  "3xl": $breakpoints-3xl,
+  '0': $breakpoints-0,
+  'xs': $breakpoints-xs,
+  'sm': $breakpoints-sm,
+  'md': $breakpoints-md,
+  'lg': $breakpoints-lg,
+  'xl': $breakpoints-xl,
+  '2xl': $breakpoints-2xl,
 );
 
 // Container
 
-$container-width: 1368px !default;
-$container-gutter-xl: 20px !default;
-$container-gutter-lg: 15px !default;
-$container-gutter-md: 15px !default;
+$container-width: 1148px !default;
+$container-gutter-xl: 30px !default;
+$container-gutter-lg: 20px !default;
+$container-gutter-md: 20px !default;
 
 // Transitions
 
 $transition-fast: 0.15s ease !default;
 $transition-slow: 0.3s ease !default;
 $transition-very-slow: 0.5s ease !default;
+
+// Other
+
+$header-height-desktop: 80px;
+$header-height-mobile: 48px;

@@ -1,5 +1,6 @@
-@use '../abstracts' as *;
 @use 'sass:color';
+
+@use '../abstracts' as *;
 
 @at-root {
   @viewport {
@@ -9,7 +10,7 @@
 
 html {
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: color.adjust($color-background-secondary, $alpha: -0.8);
   -ms-overflow-style: scrollbar;
   text-size-adjust: 100%;
   min-width: 375px;
@@ -25,10 +26,12 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  flex-grow: 1;
+  min-height: 100%; // If dvh is not supported
+  min-height: 100dvh;
   margin: 0;
-  background: var(--color-background-secondary);
-  color: var(--color-foreground-main);
+  background: $color-background-primary;
+  color: $color-text;
   word-break: break-word;
   font-family: $font-family-main;
   font-size: $base-font-size;
@@ -37,6 +40,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  font-weight: 800;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 100%; // If dvh is not supported
+  min-height: 100dvh;
+}
+
+main {
+  flex-grow: 1;
 }
 
 [tabindex='-1']:focus {
@@ -114,13 +130,13 @@ img {
 }
 
 ::selection {
-  background: var(--color-background-fourth);
-  color: var(--color-foreground-sixth);
+  background: $color-background-third;
+  color: $color-foreground-primary;
 }
 
 ::-moz-selection {
-  background: var(--color-background-fourth);
-  color: var(--color-foreground-sixth);
+  background: $color-background-third;
+  color: $color-foreground-primary;
 }
 
 button {
@@ -138,7 +154,7 @@ button {
 
 b,
 strong {
-  font-weight: 700;
+  font-weight: 800;
 }
 
 small {

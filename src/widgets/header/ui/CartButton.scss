@@ -1,0 +1,69 @@
+@use 'sass:color';
+@use '../../../shared/scss/abstracts' as *;
+
+.cart-button {
+  $block-name: &;
+
+  @include reset-btn;
+  @include reset-text-indents;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+
+  &:hover {
+    #{$block-name} {
+      &__icon {
+        &--white {
+          opacity: 0;
+        }
+
+        &--colored {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &:active {
+    #{$block-name} {
+      &__icon {
+        &--white {
+          opacity: 1;
+        }
+
+        &--colored {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  &__text {
+    @include visually-hidden;
+  }
+
+  &__icons {
+    display: block;
+    position: relative;
+    width: 24px;
+    height: 20px;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity $transition-fast;
+
+    &--white {
+      opacity: 1;
+    }
+
+    &--colored {
+      opacity: 0;
+    }
+  }
+}

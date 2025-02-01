@@ -1,0 +1,20 @@
+@use '../../scss/abstracts' as *;
+
+.title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: $font-family-headings;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: var(--color-foreground-seventh);
+
+  &--color-secondary {
+    color: var(--color-base-purple-850);
+  }
+
+  &--color-third {
+    color: var(--color-base-gray-50);
+  }
+}

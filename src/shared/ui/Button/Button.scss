@@ -1,0 +1,7 @@
+@use '@/app/_shared/scss/abstracts' as *;
+
+.button {
+  $block-name: &;
+
+  @include reset-btn;
+}
