@@ -1,4 +1,4 @@
-# 🌐 [Link](https://creator-byte.maxsimov.pro)
+# 🌐 [Link](https://devdenmak.github.io/softswiss-frontend-test/)
 
 ```bash
 node: 22.2.0
