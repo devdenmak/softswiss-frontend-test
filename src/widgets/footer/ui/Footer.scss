@@ -9,6 +9,11 @@
   text-align: center;
   padding: 15px 0;
   overflow: hidden;
+  margin-top: 58px;
+
+  @include mq($until: md) {
+    margin-top: 50px;
+  }
 
   &__rocket {
     margin-bottom: -8px;

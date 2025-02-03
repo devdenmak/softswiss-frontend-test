@@ -7,8 +7,17 @@
   padding-top: 58px;
   padding-bottom: 58px;
 
+  @include mq($until: md) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
   &__title {
     margin-bottom: 40px;
+
+    @include mq($until: md) {
+      margin-bottom: 30px;
+    }
   }
 
   &__grid {

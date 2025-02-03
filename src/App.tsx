@@ -1,8 +1,8 @@
 import { Header } from './widgets/header'
 
-// import { Intro } from './widgets/intro'
+import { Intro } from './widgets/intro'
 import { Offers } from './widgets/offers'
-// import { SpaceJourney } from './widgets/space-journey'
+import { SpaceJourney } from './widgets/space-journey'
 
 import { Footer } from './widgets/footer'
 
@@ -12,9 +12,9 @@ const App = () => {
       <Header />
 
       <main>
-        {/* <Intro /> */}
+        <Intro />
         <Offers />
-        {/* <SpaceJourney /> */}
+        <SpaceJourney />
       </main>
 
       <Footer />

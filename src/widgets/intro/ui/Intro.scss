@@ -1,0 +1,140 @@
+@use 'sass:color';
+@use '../../../shared/scss/abstracts' as *;
+
+.intro {
+  $block-name: &;
+
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  padding-top: 44px;
+  padding-bottom: 44px;
+  min-height: 490px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  @include mq($until: xl) {
+    min-height: 420px;
+  }
+
+  @include mq($until: md) {
+    min-height: 452px;
+    align-items: flex-end;
+    text-align: center;
+  }
+
+  &__rocket {
+    position: absolute;
+    bottom: 0;
+    right: 125px;
+    rotate: -25deg;
+
+    @include mq($until: xl) {
+      right: 60px;
+      bottom: -25px;
+    }
+
+    @include mq($until: md) {
+      right: 85px;
+      bottom: 30px;
+    }
+  }
+
+  &__rocket-image {
+    transition: transform 1s ease-in-out;
+  }
+
+  &__container {
+    position: relative;
+
+    @include mq($until: md) {
+      position: static;
+    }
+  }
+
+  &__earth {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 360px;
+    height: 367px;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+    background-repeat: no-repeat;
+
+    &:hover {
+      #{$block-name} {
+        &__rocket-image {
+          transform: translate(700%, 0);
+        }
+      }
+    }
+
+    &:not(:hover) {
+      #{$block-name} {
+        &__rocket-image {
+          // transform: translate(-50%, -50%) rotate(180deg);
+        }
+      }
+    }
+
+    @include mq($until: xl) {
+      width: 299px;
+      height: 336px;
+      margin-right: -50px;
+      top: 100px;
+    }
+
+    @include mq($until: md) {
+      right: auto;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+      top: -100px;
+      background-size: contain;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    align-items: flex-start;
+    padding-right: 490px;
+
+    @include mq($until: xl) {
+      padding-right: 300px;
+    }
+
+    @include mq($until: md) {
+      padding-right: 0;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+
+  &__inner {
+  }
+
+  &__title {
+  }
+
+  &__description {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 120%;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    @include mq($until: xl) {
+      font-size: 22px;
+    }
+
+    > span {
+      color: $color-foreground-primary;
+    }
+  }
+  &__button {
+  }
+}

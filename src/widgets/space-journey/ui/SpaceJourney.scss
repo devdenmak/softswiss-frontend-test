@@ -1,0 +1,86 @@
+@use 'sass:color';
+@use '../../../shared/scss/abstracts' as *;
+
+.space-journey {
+  $block-name: &;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__button {
+    order: 2;
+    padding: 5px;
+    margin: -5px;
+    color: $color-foreground-primary;
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    user-select: none;
+    margin-top: 12px;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: color.adjust($color-foreground-primary, $alpha: -0.4);
+    }
+
+    &:active {
+      color: $color-foreground-primary;
+    }
+
+    @include mq($until: lg) {
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    @include mq($until: md) {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+
+  &__input {
+    order: 1;
+    display: none;
+
+    &:checked {
+      & ~ #{$block-name}__text {
+        -webkit-line-clamp: 3;
+      }
+
+      & ~ #{$block-name}__menu {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  &__text {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 23px;
+    color: $color-text-muted;
+    font-weight: 700;
+
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    // -webkit-line-clamp: 3;
+
+    @include mq($until: lg) {
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    @include mq($until: md) {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 17px;
+  }
+}

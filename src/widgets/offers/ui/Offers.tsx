@@ -47,13 +47,13 @@ type IOfferProps = {
 }
 
 const OfferCard = ({ offer: { title, description, images }, size, className }: IOfferProps) => {
-  const { gradientWhiteToBlackHorizontal } = variables
+  const { gradientTransparentToBlackHorizontal } = variables
 
   const backgroundImage = getBackgroundImage(`${images.src} 1x, ${images.src2x} 2x`)
 
   return (
     <article
-      style={{ backgroundImage: `${gradientWhiteToBlackHorizontal}, ${backgroundImage}` }}
+      style={{ backgroundImage: `${gradientTransparentToBlackHorizontal}, ${backgroundImage}` }}
       className={clsx('offer', `offer--size-${size}`, className)}
     >
       <Title className="offer__title" textSize={size === 'l' ? 'xl' : 'm'} tag="h3">
